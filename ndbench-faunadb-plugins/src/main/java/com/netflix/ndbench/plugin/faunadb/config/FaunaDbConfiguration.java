@@ -2,6 +2,7 @@ package com.netflix.ndbench.plugin.faunadb.config;
 
 import com.netflix.archaius.api.annotations.Configuration;
 import com.netflix.archaius.api.annotations.DefaultValue;
+import com.netflix.archaius.api.annotations.PropertyName;
 import com.netflix.ndbench.api.plugin.common.NdBenchConstants;
 
 @Configuration(prefix = NdBenchConstants.PROP_NAMESPACE + "cockroachdb")
@@ -12,14 +13,15 @@ public interface FaunaDbConfiguration {
     @DefaultValue("test")
     String getTableName();
 
-    @DefaultValue("test-loadbalancer")
-    String getLoadBalancer();
+    @PropertyName(name = "host")
+    // Ignore PMD java rule as inapplicable because we're setting an overridable default
+    @SuppressWarnings("PMD.AvoidUsingHardCodedIP")
+    @DefaultValue("127.0.0.1")
+    String getHost();
 
-    @DefaultValue("maxroach")
-    String getUser();
-
-    @DefaultValue("26257")
-    String getPort();
+    @PropertyName(name = "host.port")
+    @DefaultValue("8443")
+    Integer getHostPort();
 
     @DefaultValue("")
     String getPassword();

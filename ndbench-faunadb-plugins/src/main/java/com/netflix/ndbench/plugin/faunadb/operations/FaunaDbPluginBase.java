@@ -45,8 +45,7 @@ public abstract class FaunaDbPluginBase implements NdBenchClient
         this.dataGenerator = dataGenerator;
 
         client = FaunaClient.builder()
-                            .withSecret("YOUR_FAUNADB_SECRET")
-                            .withEndpoint("")
+                            .withEndpoint("http://" + config.getHost() + ':' + config.getHostPort())
                             .build();
 
         createTables();
