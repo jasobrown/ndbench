@@ -1,0 +1,7 @@
+dependencies {
+    compile project(':ndbench-api')
+    compile project(':ndbench-core')
+
+    // Jackson
+    compile 'org.foundationdb:fdb-java:6.0.15'
+}
