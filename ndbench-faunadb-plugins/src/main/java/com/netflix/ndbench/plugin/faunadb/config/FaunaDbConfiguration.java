@@ -23,6 +23,11 @@ public interface FaunaDbConfiguration {
     @DefaultValue("8443")
     Integer getHostPort();
 
+
+    @PropertyName(name = "root_key")
+    @DefaultValue("secret")
+    String getRookKeySecret();
+
     @DefaultValue("")
     String getPassword();
 
