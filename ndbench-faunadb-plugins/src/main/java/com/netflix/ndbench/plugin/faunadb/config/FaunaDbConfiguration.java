@@ -11,7 +11,7 @@ public interface FaunaDbConfiguration {
     String getDBName();
 
     @DefaultValue("test")
-    String getTableName();
+    String getClassName();
 
     @PropertyName(name = "host")
     // Ignore PMD java rule as inapplicable because we're setting an overridable default

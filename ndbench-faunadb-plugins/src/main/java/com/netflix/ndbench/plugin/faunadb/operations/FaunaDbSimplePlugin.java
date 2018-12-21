@@ -16,6 +16,9 @@ import com.netflix.ndbench.plugin.faunadb.config.FaunaDbConfiguration;
 
 import static com.faunadb.client.query.Language.*;
 
+/**
+ * Creates a trivial doc with just one element, at the root.
+ */
 @Singleton
 @NdBenchClientPlugin("FaunaDbSimplePlugin")
 public class FaunaDbSimplePlugin extends FaunaDbPluginBase {
@@ -36,7 +39,7 @@ public class FaunaDbSimplePlugin extends FaunaDbPluginBase {
             retVal = client.query(CreateIndex(Obj(
             "name", Value("posts_by_title"),   // this is the name of the index
             "source", Class(Value(className)), // class type
-            "terms", Arr(Obj("field", Arr(Value("data"), Value("title")))) // indexes data and title fields
+            "terms", Arr(Obj("field", Arr(Value("data"), Value("title")))) // indexes title field
             ))).get();
         } catch (ExecutionException ee) {
             Throwable cause = ee.getCause();

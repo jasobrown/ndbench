@@ -43,8 +43,7 @@ public abstract class FaunaDbPluginBase implements NdBenchClient {
         this.config = config;
         dbName = config.getDBName();
 
-        // this might not be table name
-        className = config.getTableName();
+        className = config.getClassName();
     }
 
     public void init(DataGenerator dataGenerator) throws Exception {
