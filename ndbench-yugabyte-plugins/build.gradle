@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+dependencies {
+    compile project(':ndbench-api')
+    compile project(':ndbench-core')
+
+    compile 'javax.inject:javax.inject'
+    testCompile group: 'com.netflix.archaius', name: 'archaius2-guice', version: '2.1.11'
+
+    compile group: 'com.yugabyte', name: 'cassandra-driver-core', version: '3.2.0-yb-18'
+    compile group: 'com.yugabyte', name: 'jedis', version: '2.9.0-yb-16'
+ }

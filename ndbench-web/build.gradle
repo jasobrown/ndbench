@@ -15,6 +15,7 @@ dependencies {
     compile project(':ndbench-geode-plugins')
     compile project(':ndbench-janusgraph-plugins')       
     compile project(':ndbench-sample-plugins')
+    compile project(':ndbench-yugabyte-plugins')       
     
     compile 'com.google.inject.extensions:guice-servlet:4.0'
     compile 'com.google.inject:guice:4.0'
