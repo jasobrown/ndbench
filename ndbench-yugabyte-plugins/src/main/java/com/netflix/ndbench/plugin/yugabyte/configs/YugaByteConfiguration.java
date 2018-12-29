@@ -38,6 +38,9 @@ public interface YugaByteConfiguration {
     @DefaultValue("6379")
     Integer getRedisPort();
 
+    @DefaultValue("9042")
+    Integer getCqlPort();
+
     @DefaultValue("")
     String getPassword();
 

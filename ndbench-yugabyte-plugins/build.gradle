@@ -9,4 +9,10 @@ dependencies {
 
     compile group: 'com.yugabyte', name: 'cassandra-driver-core', version: '3.2.0-yb-18'
     compile group: 'com.yugabyte', name: 'jedis', version: '2.9.0-yb-16'
- }
+
+    //YugaByte supports the PostgreSQL wire protocol (BETA)
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+    // JDBC Connection Pool - HikariCP - https://github.com/brettwooldridge/HikariCP
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '3.1.0'
+}

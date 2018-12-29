@@ -35,7 +35,6 @@ public abstract class YugaByteRedisPluginBase implements NdBenchClient {
      */
     @Override
     public void shutdown() {
-        logger.info("SHUTTING DOWN JEDIS");
         clientPool.close();
     }
 
