@@ -17,8 +17,8 @@ public class YugaByteSimpleCqlPlugin extends YugaByteCqlPluginBase
 {
     private static final Logger logger = LoggerFactory.getLogger(YugaByteSimpleCqlPlugin.class);
 
-    private static final String KEYSPACE = "yb_ndbenchdemo";
-    private static final String TABLE = "employees";
+    private final String keyspace;
+    private final String table;
 
     private PreparedStatement insertStatement;
     private PreparedStatement selectStatement;
@@ -27,21 +27,23 @@ public class YugaByteSimpleCqlPlugin extends YugaByteCqlPluginBase
     public YugaByteSimpleCqlPlugin(YugaByteConfiguration configuration)
     {
         super(configuration);
+        keyspace = configuration.getKeyspaceName();
+        table = configuration.getTableName();
     }
 
     protected void createTables() {
-        String createKeyspace = String.format("CREATE KEYSPACE IF NOT EXISTS %s;", KEYSPACE);
-        ResultSet createKeyspaceResult = session.execute(createKeyspace);
+        String createkeyspace = String.format("CREATE keyspace IF NOT EXISTS %s;", keyspace);
+        ResultSet createkeyspaceResult = session.execute(createkeyspace);
 
-        String createTable = String.format("CREATE TABLE IF NOT EXISTS %s.%s (id varchar PRIMARY KEY, " +
+        String createtable = String.format("CREATE table IF NOT EXISTS %s.%s (id varchar PRIMARY KEY, " +
                                            "name varchar, age int, language varchar);",
-                                           KEYSPACE, TABLE);
-        ResultSet createResult = session.execute(createTable);
+                                           keyspace, table);
+        ResultSet createResult = session.execute(createtable);
 
-        String insert = String.format("insert into %s.%s (id, name, age, language) values (?, ?, ?, ?);", KEYSPACE, TABLE);
+        String insert = String.format("insert into %s.%s (id, name, age, language) values (?, ?, ?, ?);", keyspace, table);
         insertStatement = session.prepare(insert);
 
-        String select = String.format("select name, age, language from %s.%s where id = ?;", KEYSPACE, TABLE);
+        String select = String.format("select name, age, language from %s.%s where id = ?;", keyspace, table);
         selectStatement = session.prepare(select);
     }
 

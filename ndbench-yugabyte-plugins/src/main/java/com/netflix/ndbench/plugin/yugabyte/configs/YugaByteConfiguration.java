@@ -26,13 +26,19 @@ public interface YugaByteConfiguration {
     @DefaultValue("perftest")
     String getDBName();
 
-    @DefaultValue("test")
+    @DefaultValue("postgres")
+    String getPostgresDBName();
+
+    @DefaultValue("ycql")
+    String getKeyspaceName();
+
+    @DefaultValue("yugabyte_test")
     String getTableName();
 
     @DefaultValue("127.0.0.1")
     String getHost();
 
-    @DefaultValue("maxroach")
+    @DefaultValue("postgres")
     String getUser();
 
     @DefaultValue("6379")
@@ -40,6 +46,9 @@ public interface YugaByteConfiguration {
 
     @DefaultValue("9042")
     Integer getCqlPort();
+
+    @DefaultValue("5433")
+    Integer getPostgresPort();
 
     @DefaultValue("")
     String getPassword();
