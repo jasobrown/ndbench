@@ -88,7 +88,7 @@ public class AwsSqlSecondaryIndexPlugin extends AwsSqlPluginBase
             }
             catch (Exception e)
             {
-                logger.warn("problem creating indices; they probably already exist - you have been warned");
+                logger.info("problem creating indices; they probably already exist and i'm ignoring - you have been warned");
             }
         }
     }
