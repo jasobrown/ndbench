@@ -17,6 +17,7 @@
 package com.netflix.ndbench.plugin.aws_sql.operations;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -133,7 +134,7 @@ public abstract class AwsSqlPluginBase implements NdBenchClient
 
     public abstract void createTables() throws Exception;
 
-    public abstract void prepareStatements();
+    public abstract void prepareStatements() throws SQLException;
 
     /**
      * Assumes delimiter to be comma since that covers all the usecase for now.
